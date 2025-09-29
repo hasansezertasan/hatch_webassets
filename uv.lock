@@ -317,7 +317,7 @@ tool = [
 
 [package.metadata]
 requires-dist = [
-    { name = "hatchling", specifier = ">=1.27.0" },
+    { name = "hatchling", specifier = ">=1.0.0" },
     { name = "webassets", specifier = ">=2.0" },
 ]
 
@@ -325,7 +325,7 @@ requires-dist = [
 dev = [
     { name = "coverage", extras = ["toml"], specifier = "~=7.4" },
     { name = "coverage-enable-subprocess", specifier = "==1.0" },
-    { name = "hatch-webassets", extras = ["cli"] },
+    { name = "hatch-webassets" },
     { name = "mypy", specifier = ">=1.14.1" },
     { name = "poethepoet", specifier = ">=0.30.0" },
     { name = "pre-commit", specifier = "==3.5.0" },

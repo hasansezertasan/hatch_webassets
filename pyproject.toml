@@ -12,20 +12,19 @@ maintainers = [
 dynamic = ["version"]
 # TODO @hasansezertasan: Update the keywords
 keywords = [
-  "command-line",
-  "cli",
   "package",
   "metadata",
   "pypi",
   "python",
+  "webassets",
+  "hatch",
+  "build-hook",
 ]
 # TODO @hasansezertasan: Fill in classifiers
 classifiers = [
   "Development Status :: 1 - Planning",
-  "Environment :: Console",
+  "Framework :: Hatch",
   "Intended Audience :: Developers",
-  "Intended Audience :: Information Technology",
-  "Intended Audience :: System Administrators",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3 :: Only",
@@ -40,17 +39,14 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
   "Programming Language :: Python",
-  "Topic :: Internet",
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development",
-  "Topic :: Terminals",
   "Typing :: Typed",
-  "Framework :: Hatch",
 ]
 requires-python = ">=3.8"
 dependencies = [
-    "hatchling>=1.27.0",
+    "hatchling>=1.0.0",
     "webassets>=2.0",
 ]
 
@@ -70,7 +66,7 @@ webassets = "hatch_webassets"
 
 [dependency-groups]
 dev = [
-  "hatch_webassets[cli]",
+  "hatch_webassets",
   "tox>=4.25.0",
   "tox-uv>=1.13.1",
   { include-group = "lint" },
@@ -302,7 +298,6 @@ package = "wheel"
 runner = "uv-venv-runner"
 use_frozen_constraints = true
 wheel_build_env = ".pkg"
-extras = ["cli"]
 
 
 [tool.tox.env.style]
