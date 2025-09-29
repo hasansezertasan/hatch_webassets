@@ -3,9 +3,7 @@ name = "hatch_webassets"
 description = "A hatch build-hook for webassets"
 license = "MIT"
 readme = "README.md"
-# TODO @hasansezertasan: Update the author name and email
 authors = [{ name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" }]
-# TODO @hasansezertasan: Update the maintainer name and email
 maintainers = [
   { name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" },
 ]
@@ -45,10 +43,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 requires-python = ">=3.8"
-dependencies = [
-    "hatchling>=1.0.0",
-    "webassets>=2.0",
-]
+dependencies = ["hatchling>=1.0.0", "webassets>=2.0"]
 
 
 [project.urls]
@@ -94,10 +89,7 @@ test = [
   "pytest-xdist[psutil]~=3.5",
   "pytest~=8.1",
 ]
-tool = [
-  "poethepoet>=0.37.0",
-  "pre-commit==3.5.0",
-]
+tool = ["poethepoet>=0.37.0", "pre-commit==3.5.0"]
 
 
 [tool.uv]
@@ -108,10 +100,7 @@ cache-keys = [
 trusted-publishing = "always"
 
 [tool.uv.workspace]
-members = [
-    "examples/simple",
-    "examples/web",
-]
+members = ["examples/simple", "examples/web"]
 
 
 [build-system]
@@ -146,7 +135,10 @@ omit = ["src/hatch_webassets/_version.py"]
 
 
 [tool.coverage.paths]
-hatch_webassets = ["src/hatch_webassets", "*/hatch_webassets/src/hatch_webassets"]
+hatch_webassets = [
+  "src/hatch_webassets",
+  "*/hatch_webassets/src/hatch_webassets",
+]
 tests = ["tests", "*/hatch_webassets/tests"]
 
 
@@ -326,8 +318,3 @@ runner = "uv-venv-runner"
 dependency_groups = ["lint"]
 description = "Run Linters and Formatters"
 allowlist_externals = ["actionlint", "yamlfmt"]
-
-
-[tool.tox.env.run]
-commands = [["hatch_webassets", "version", { replace = "posargs", extend = true }]]
-description = "Run the application"
