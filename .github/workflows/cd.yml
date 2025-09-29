@@ -14,7 +14,7 @@ jobs:
     # Specifying a GitHub environment is optional, but strongly encouraged
     environment:
       name: publish
-      url: https://pypi.org/project/theproject/${{ github.ref_name }}
+      url: https://pypi.org/project/hatch_webassets/${{ github.ref_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5

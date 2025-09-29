@@ -4,9 +4,9 @@
 name-template: '$RESOLVED_VERSION 🌈'
 tag-template: '$RESOLVED_VERSION'
 template: |
-  # :mega: theproject $RESOLVED_VERSION released!
+  # :mega: hatch_webassets $RESOLVED_VERSION released!
 
-  We are pleased to announce the release of theproject $RESOLVED_VERSION.
+  We are pleased to announce the release of hatch_webassets $RESOLVED_VERSION.
 
   $CHANGES
 

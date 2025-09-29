@@ -1,31 +1,28 @@
 [project]
-name = "theproject"
-description = "A Python CLI tool and library template."
+name = "hatch_webassets"
+description = "A hatch build-hook for webassets"
 license = "MIT"
 readme = "README.md"
-# TODO @hasansezertasan: Update the author name and email
 authors = [{ name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" }]
-# TODO @hasansezertasan: Update the maintainer name and email
 maintainers = [
   { name = "Hasan Sezer Taşan", email = "hasansezertasan@gmail.com" },
 ]
 dynamic = ["version"]
 # TODO @hasansezertasan: Update the keywords
 keywords = [
-  "command-line",
-  "cli",
   "package",
   "metadata",
   "pypi",
   "python",
+  "webassets",
+  "hatch",
+  "build-hook",
 ]
 # TODO @hasansezertasan: Fill in classifiers
 classifiers = [
   "Development Status :: 1 - Planning",
-  "Environment :: Console",
+  "Framework :: Hatch",
   "Intended Audience :: Developers",
-  "Intended Audience :: Information Technology",
-  "Intended Audience :: System Administrators",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3 :: Only",
@@ -40,37 +37,31 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
   "Programming Language :: Python",
-  "Topic :: Internet",
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development",
-  "Topic :: Terminals",
   "Typing :: Typed",
 ]
 requires-python = ">=3.8"
-dependencies = []
-
-
-[project.optional-dependencies]
-cli = ["typer>=0.16.0"]
+dependencies = ["hatchling>=1.0.0", "webassets>=2.0"]
 
 
 [project.urls]
-changelog = "https://github.com/hasansezertasan/theproject/blob/main/CHANGELOG.md"
-documentation = "https://github.com/hasansezertasan/theproject#readme"
-homepage = "https://github.com/hasansezertasan/theproject"
-issues = "https://github.com/hasansezertasan/theproject/issues"
-releasenotes = "https://github.com/hasansezertasan/theproject/releases"
-source = "https://github.com/hasansezertasan/theproject.git"
+changelog = "https://github.com/hasansezertasan/hatch_webassets/blob/main/CHANGELOG.md"
+documentation = "https://github.com/hasansezertasan/hatch_webassets#readme"
+homepage = "https://github.com/hasansezertasan/hatch_webassets"
+issues = "https://github.com/hasansezertasan/hatch_webassets/issues"
+releasenotes = "https://github.com/hasansezertasan/hatch_webassets/releases"
+source = "https://github.com/hasansezertasan/hatch_webassets.git"
 
 
-[project.scripts]
-theproject = "theproject.cli:app"
+[project.entry-points.hatch]
+webassets = "hatch_webassets"
 
 
 [dependency-groups]
 dev = [
-  "theproject[cli]",
+  "hatch_webassets",
   "tox>=4.25.0",
   "tox-uv>=1.13.1",
   { include-group = "lint" },
@@ -79,15 +70,15 @@ dev = [
 ]
 lint = [
   "mypy>=1.14.1",
-  "pyright>=1.1.403",
-  "ty==0.0.1a16",
-  "pyrefly==0.25.1",
-  "ruff>=0.12.7",
+  "pyright>=1.1.405",
+  "ty==0.0.1a21",
+  "pyrefly==0.34.0",
+  "ruff>=0.13.2",
   "taplo>=0.9.3",
-  "typos>=1.34.0",
+  "typos>=1.36.3",
   "validate-pyproject[all]>=0.24.1",
   "vulture>=2.14",
-  "slotscheck>=0.16.5",
+  "slotscheck>=0.19.1",
 ]
 test = [
   "coverage-enable-subprocess==1.0",
@@ -98,7 +89,7 @@ test = [
   "pytest-xdist[psutil]~=3.5",
   "pytest~=8.1",
 ]
-tool = ["poethepoet>=0.30.0", "pre-commit==3.5.0"]
+tool = ["poethepoet>=0.37.0", "pre-commit==3.5.0"]
 
 
 [tool.uv]
@@ -107,6 +98,9 @@ cache-keys = [
   { git = { commit = true, tags = true } },
 ]
 trusted-publishing = "always"
+
+[tool.uv.workspace]
+members = ["examples/simple", "examples/web"]
 
 
 [build-system]
@@ -120,7 +114,7 @@ fallback-version = "0.1.0"
 
 
 [tool.hatch.build]
-hooks.vcs.version-file = "src/theproject/_version.py"
+hooks.vcs.version-file = "src/hatch_webassets/_version.py"
 
 
 [tool.hatch.version.raw-options]
@@ -134,15 +128,18 @@ testpaths = ["tests"]
 
 
 [tool.coverage.run]
-source_pkgs = ["theproject", "tests"]
+source_pkgs = ["hatch_webassets", "tests"]
 branch = true
 parallel = true
-omit = ["src/theproject/_version.py"]
+omit = ["src/hatch_webassets/_version.py"]
 
 
 [tool.coverage.paths]
-theproject = ["src/theproject", "*/theproject/src/theproject"]
-tests = ["tests", "*/theproject/tests"]
+hatch_webassets = [
+  "src/hatch_webassets",
+  "*/hatch_webassets/src/hatch_webassets",
+]
+tests = ["tests", "*/hatch_webassets/tests"]
 
 
 [tool.coverage.report]
@@ -233,7 +230,7 @@ strict = true
 
 
 [tool.pyright]
-include = ["src/theproject"]
+include = ["src/hatch_webassets"]
 
 
 [tool.ty.src]
@@ -296,7 +293,6 @@ package = "wheel"
 runner = "uv-venv-runner"
 use_frozen_constraints = true
 wheel_build_env = ".pkg"
-extras = ["cli"]
 
 
 [tool.tox.env.style]
@@ -322,8 +318,3 @@ runner = "uv-venv-runner"
 dependency_groups = ["lint"]
 description = "Run Linters and Formatters"
 allowlist_externals = ["actionlint", "yamlfmt"]
-
-
-[tool.tox.env.run]
-commands = [["theproject", "version", { replace = "posargs", extend = true }]]
-description = "Run the application"
