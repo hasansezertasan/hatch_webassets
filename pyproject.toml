@@ -108,6 +108,12 @@ cache-keys = [
 ]
 trusted-publishing = "always"
 
+[tool.uv.workspace]
+members = [
+    "examples/simple",
+    "examples/litestar_example",
+]
+
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
