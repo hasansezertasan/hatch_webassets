@@ -1,6 +1,6 @@
 [project]
-name = "theproject"
-description = "A Python CLI tool and library template."
+name = "hatch_webassets"
+description = "A hatch build-hook for webassets"
 license = "MIT"
 readme = "README.md"
 # TODO @hasansezertasan: Update the author name and email
@@ -46,31 +46,31 @@ classifiers = [
   "Topic :: Software Development",
   "Topic :: Terminals",
   "Typing :: Typed",
+  "Framework :: Hatch",
 ]
 requires-python = ">=3.8"
-dependencies = []
-
-
-[project.optional-dependencies]
-cli = ["typer>=0.16.0"]
+dependencies = [
+    "hatchling>=1.27.0",
+    "webassets>=2.0",
+]
 
 
 [project.urls]
-changelog = "https://github.com/hasansezertasan/theproject/blob/main/CHANGELOG.md"
-documentation = "https://github.com/hasansezertasan/theproject#readme"
-homepage = "https://github.com/hasansezertasan/theproject"
-issues = "https://github.com/hasansezertasan/theproject/issues"
-releasenotes = "https://github.com/hasansezertasan/theproject/releases"
-source = "https://github.com/hasansezertasan/theproject.git"
+changelog = "https://github.com/hasansezertasan/hatch_webassets/blob/main/CHANGELOG.md"
+documentation = "https://github.com/hasansezertasan/hatch_webassets#readme"
+homepage = "https://github.com/hasansezertasan/hatch_webassets"
+issues = "https://github.com/hasansezertasan/hatch_webassets/issues"
+releasenotes = "https://github.com/hasansezertasan/hatch_webassets/releases"
+source = "https://github.com/hasansezertasan/hatch_webassets.git"
 
 
-[project.scripts]
-theproject = "theproject.cli:app"
+[project.entry-points.hatch]
+webassets = "hatch_webassets"
 
 
 [dependency-groups]
 dev = [
-  "theproject[cli]",
+  "hatch_webassets[cli]",
   "tox>=4.25.0",
   "tox-uv>=1.13.1",
   { include-group = "lint" },
@@ -120,7 +120,7 @@ fallback-version = "0.1.0"
 
 
 [tool.hatch.build]
-hooks.vcs.version-file = "src/theproject/_version.py"
+hooks.vcs.version-file = "src/hatch_webassets/_version.py"
 
 
 [tool.hatch.version.raw-options]
@@ -134,15 +134,15 @@ testpaths = ["tests"]
 
 
 [tool.coverage.run]
-source_pkgs = ["theproject", "tests"]
+source_pkgs = ["hatch_webassets", "tests"]
 branch = true
 parallel = true
-omit = ["src/theproject/_version.py"]
+omit = ["src/hatch_webassets/_version.py"]
 
 
 [tool.coverage.paths]
-theproject = ["src/theproject", "*/theproject/src/theproject"]
-tests = ["tests", "*/theproject/tests"]
+hatch_webassets = ["src/hatch_webassets", "*/hatch_webassets/src/hatch_webassets"]
+tests = ["tests", "*/hatch_webassets/tests"]
 
 
 [tool.coverage.report]
@@ -233,7 +233,7 @@ strict = true
 
 
 [tool.pyright]
-include = ["src/theproject"]
+include = ["src/hatch_webassets"]
 
 
 [tool.ty.src]
@@ -325,5 +325,5 @@ allowlist_externals = ["actionlint", "yamlfmt"]
 
 
 [tool.tox.env.run]
-commands = [["theproject", "version", { replace = "posargs", extend = true }]]
+commands = [["hatch_webassets", "version", { replace = "posargs", extend = true }]]
 description = "Run the application"

@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a new feature for `theproject`
+about: Suggest a new feature for `hatch_webassets`
 title: 'Enhancement: '
 labels: enhancement
 assignees: 'hasansezertasan'

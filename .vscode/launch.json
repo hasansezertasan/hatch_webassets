@@ -12,7 +12,7 @@
             "module": "uv",
             "args": [
                 "run",
-                "theproject",
+                "hatch_webassets",
                 "${input:args}"
             ]
         }

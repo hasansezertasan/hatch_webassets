@@ -1,9 +1,10 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "dependencyDashboard": true,
-  "extends": [
-    "config:recommended"
-  ],
-  "labels": ["internal"],
-  "semanticCommits": "enabled"
-}
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "dependencyDashboard": true,
+    "extends": [
+      "config:recommended"
+    ],
+    "labels": ["internal"],
+    "semanticCommits": "enabled"
+  }
+  
