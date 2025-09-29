@@ -14,13 +14,13 @@
         "cwd": "${workspaceFolder}/examples/simple"
       },
       {
-        "name": "Run Multiple Plugins Example",
+        "name": "Run Web Example",
         "type": "debugpy",
         "request": "launch",
         "justMyCode": true,
         "module": "uv",
         "args": ["build"],
-        "cwd": "${workspaceFolder}/examples/multiple-plugins"
+        "cwd": "${workspaceFolder}/examples/web"
       },
       {
         "name": "Debug Package",

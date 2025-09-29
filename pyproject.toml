@@ -111,7 +111,7 @@ trusted-publishing = "always"
 [tool.uv.workspace]
 members = [
     "examples/simple",
-    "examples/litestar_example",
+    "examples/web",
 ]
 
 
