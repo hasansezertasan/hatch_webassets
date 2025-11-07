@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 from hatchling.plugin import hookimpl
 
-from hatch_webassets.hook import WebassetsBuildHook
+from hatch_webassets.plugin import WebassetsBuildHook
 
 if TYPE_CHECKING:
     from hatchling.builders.config import BuilderConfig
